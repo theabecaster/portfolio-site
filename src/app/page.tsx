@@ -3,6 +3,7 @@ import Section from "@/components/ui/Section";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { FiSmartphone, FiCode, FiLayers, FiServer, FiLayout, FiPackage } from "react-icons/fi";
 import ContactForm from "@/components/ui/ContactForm";
+import Image from "next/image";
 
 export default function Home() {
   const skills = [
@@ -139,12 +140,13 @@ export default function Home() {
               <div 
                 className="bg-background rounded-lg overflow-hidden border border-gray-200 hover:border-primary transition-colors flex flex-col w-full"
               >
-                <div className="h-48 bg-muted flex items-center justify-center">
+                <div className="h-48 bg-muted flex items-center justify-center relative">
                   {project.image ? (
-                    <img 
+                    <Image 
                       src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover"
+                      alt={project.title}
+                      fill
+                      className="object-cover"
                     />
                   ) : (
                     <span className="text-muted-foreground">Project Image</span>

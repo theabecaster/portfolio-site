@@ -133,7 +133,7 @@ export default function ContactForm({
           info: { error: true, msg: data.error || 'Something went wrong. Please try again later.' }
         });
       }
-    } catch (_) {
+    } catch {
       setStatus({
         submitted: false,
         submitting: false,
