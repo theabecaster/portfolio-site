@@ -36,8 +36,8 @@ export async function POST(request: Request) {
     // Send the email
     try {
       const { data, error } = await resend.emails.send({
-        from: 'Contact Form <onboarding@resend.dev>', // You can customize this after verification
-        to: 'inquiries@abrahamgonzalez.dev',
+        from: 'inquiries@abrahamgonzalez.dev', // You can customize this after verification
+        to: 'developerabe0@gmail.com',
         subject: emailSubject,
         replyTo: email,
         text: `
