@@ -49,7 +49,7 @@ export default function ContactForm({
   };
 
   const validateForm = () => {
-    let tempErrors = {
+    const tempErrors = {
       name: '',
       email: '',
       subject: '',
@@ -133,7 +133,7 @@ export default function ContactForm({
           info: { error: true, msg: data.error || 'Something went wrong. Please try again later.' }
         });
       }
-    } catch (error) {
+    } catch (_) {
       setStatus({
         submitted: false,
         submitting: false,

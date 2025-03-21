@@ -14,7 +14,7 @@ export default function ContactPage() {
         <ScrollReveal delay={200}>
           <div>
             <p className="text-lg mb-6">
-              I'm interested in freelance opportunities, full-time positions, and collaborations. 
+              I&apos;m interested in freelance opportunities, full-time positions, and collaborations. 
               If you have any questions or would like to discuss potential projects, feel free to 
               reach out through any of the channels below.
             </p>

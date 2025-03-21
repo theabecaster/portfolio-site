@@ -20,13 +20,13 @@ const Hero = () => {
           </span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-heading">
-            Hi, I'm <span className="text-primary">Abraham Gonzalez</span>
+            Hi, I&apos;m <span className="text-primary">Abraham Gonzalez</span>
             <br />
             I build mobile & web apps
           </h1>
           
           <p className="text-lg text-muted-foreground max-w-xl">
-            I'm a software engineer specializing in building exceptional digital experiences for mobile and web. 
+            I&apos;m a software engineer specializing in building exceptional digital experiences for mobile and web. 
             With expertise in Swift, Kotlin, JavaScript, and TypeScript, I create scalable, performant, 
             user-centric applications.
           </p>
@@ -81,13 +81,13 @@ const Hero = () => {
                 <code>
                   <span className="text-blue-500">const</span> developer = {"{"}
                   <br />
-                  {"  "}name: <span className="text-green-500">"Abraham Gonzalez"</span>,
+                  {"  "}name: <span className="text-green-500">&quot;Abraham Gonzalez&quot;</span>,
                   <br />
-                  {"  "}skills: [<span className="text-green-500">"Swift"</span>, <span className="text-green-500">"Kotlin"</span>, <span className="text-green-500">"React"</span>, <span className="text-green-500">"Next.js"</span>],
+                  {"  "}skills: [<span className="text-green-500">&quot;Swift&quot;</span>, <span className="text-green-500">&quot;Kotlin&quot;</span>, <span className="text-green-500">&quot;React&quot;</span>, <span className="text-green-500">&quot;Next.js&quot;</span>],
                   <br />
-                  {"  "}location: <span className="text-green-500">"Weston, FL"</span>,
+                  {"  "}location: <span className="text-green-500">&quot;Weston, FL&quot;</span>,
                   <br />
-                  {"  "}passion: <span className="text-green-500">"Building exceptional mobile & web applications"</span>
+                  {"  "}passion: <span className="text-green-500">&quot;Building exceptional mobile & web applications&quot;</span>
                   <br />
                   {"}"};
                 </code>

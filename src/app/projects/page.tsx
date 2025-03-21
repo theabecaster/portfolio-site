@@ -1,7 +1,6 @@
 import React from 'react';
-import { FiGithub, FiExternalLink } from 'react-icons/fi';
+import Image from 'next/image';
 import ScrollReveal from '@/components/ui/ScrollReveal';
-import Section from '@/components/ui/Section';
 
 export default function ProjectsPage() {
   return (
@@ -9,7 +8,7 @@ export default function ProjectsPage() {
       <ScrollReveal>
         <h1 className="text-4xl font-bold mb-8">My Projects</h1>
         <p className="text-lg mb-12 max-w-3xl">
-          Here's a showcase of my professional work and projects. My focus is on creating intuitive, 
+          Here&apos;s a showcase of my professional work and projects. My focus is on creating intuitive, 
           high-performance mobile and web applications with clean code and thoughtful architecture.
         </p>
       </ScrollReveal>
@@ -18,11 +17,12 @@ export default function ProjectsPage() {
         {/* Publix Pharmacy App */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal delay={200}>
-            <div className="bg-muted rounded-lg h-80 flex items-center justify-center overflow-hidden">
-              <img 
+            <div className="bg-muted rounded-lg h-80 flex items-center justify-center overflow-hidden relative">
+              <Image 
                 src="/images/publix-pharmacy-app.webp" 
                 alt="Publix Pharmacy App" 
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </ScrollReveal>
@@ -55,11 +55,12 @@ export default function ProjectsPage() {
         {/* SoSecure by ADT */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal delay={200} className="order-1 lg:order-2">
-            <div className="bg-muted rounded-lg h-80 flex items-center justify-center overflow-hidden">
-              <img 
+            <div className="bg-muted rounded-lg h-80 flex items-center justify-center overflow-hidden relative">
+              <Image 
                 src="/images/sosecure-by-adt.webp" 
                 alt="SoSecure by ADT" 
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </ScrollReveal>
@@ -91,11 +92,12 @@ export default function ProjectsPage() {
         {/* IOTAS App */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollReveal delay={200}>
-            <div className="bg-muted rounded-lg h-80 flex items-center justify-center overflow-hidden">
-              <img 
+            <div className="bg-muted rounded-lg h-80 flex items-center justify-center overflow-hidden relative">
+              <Image 
                 src="/images/iotas-home-app.webp" 
                 alt="IOTAS Home Automation App" 
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </ScrollReveal>

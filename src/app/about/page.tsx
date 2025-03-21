@@ -13,21 +13,21 @@ export default function AboutPage() {
         <ScrollReveal delay={200} className="md:col-span-2">
           <div>
             <p className="text-lg mb-6">
-              I'm Abraham Gonzalez, a Software Engineer with a focus on creating exceptional mobile and web applications.
+              I&apos;m Abraham Gonzalez, a Software Engineer with a focus on creating exceptional mobile and web applications.
               With expertise in native iOS and Android development as well as modern web technologies, I build
               scalable, performant, user-centric applications that deliver outstanding digital experiences.
             </p>
             <p className="text-lg mb-6">
               My journey in software engineering has allowed me to work with diverse technologies and frameworks,
-              from SwiftUI and Kotlin to React and Next.js. I'm passionate about writing clean, maintainable code
+              from SwiftUI and Kotlin to React and Next.js. I&apos;m passionate about writing clean, maintainable code
               and leveraging the right tools and architectural patterns to solve complex problems.
             </p>
             <p className="text-lg mb-6">
-              Currently, I'm working at Publix Technology, where I've been instrumental in transitioning 
+              Currently, I&apos;m working at Publix Technology, where I&apos;ve been instrumental in transitioning 
               their Pharmacy app from Xamarin to native platforms, significantly improving performance and user satisfaction.
             </p>
             <p className="text-lg mb-6">
-              Outside of my professional life, I'm dedicated to Brazilian Jiu Jitsu training, which has taught me discipline and problem-solving in ways that complement my engineering mindset. When I'm not on the mats, you can find me exploring the open road on my motorcycle or cherishing quality time with my family, which keeps me grounded and inspired.
+              Outside of my professional life, I&apos;m dedicated to Brazilian Jiu Jitsu training, which has taught me discipline and problem-solving in ways that complement my engineering mindset. When I&apos;m not on the mats, you can find me exploring the open road on my motorcycle or cherishing quality time with my family, which keeps me grounded and inspired.
             </p>
           </div>
         </ScrollReveal>

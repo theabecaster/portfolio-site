@@ -55,13 +55,15 @@ Message: ${message}
       
       console.log('Email sent successfully:', data);
       return NextResponse.json({ success: true, data });
-    } catch (emailError: any) {
+    } catch (emailError: unknown) {
       console.error('Error sending email:', emailError);
-      return NextResponse.json({ error: emailError.message }, { status: 500 });
+      const errorMessage = emailError instanceof Error ? emailError.message : 'Unknown error occurred';
+      return NextResponse.json({ error: errorMessage }, { status: 500 });
     }
     
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('API route error:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 } 
