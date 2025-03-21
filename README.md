@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Professional Portfolio Website
+
+A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- **Modern UI**: Clean, professional, and responsive design
+- **Dark/Light Mode**: Automatic theme switching based on user preferences
+- **Optimized Performance**: Fast loading and smooth animations
+- **SEO Friendly**: Proper meta tags and structured data
+- **Type Safety**: Built with TypeScript for better code quality
+- **Modular Components**: Well-organized component structure
+
+## Tech Stack
+
+- **Frontend**: Next.js 15+ with App Router
+- **Styling**: Tailwind CSS
+- **State Management**: React Hooks
+- **Animations**: Framer Motion
+- **Icons**: React Icons
+- **UI Components**: Custom components, Headless UI
+- **Type Checking**: TypeScript
+- **Linting**: ESLint
+- **Formatting**: Prettier (recommended)
+
+## Project Structure
+
+```
+├── public/             # Static assets
+├── src/
+│   ├── app/            # App router pages
+│   ├── components/     # React components
+│   │   ├── layout/     # Layout components (Header, Footer)
+│   │   ├── sections/   # Page sections (Hero, About, etc.)
+│   │   └── ui/         # Reusable UI components
+│   ├── data/           # Data files (projects, skills)
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utility functions
+│   ├── styles/         # Global styles
+│   └── types/          # TypeScript types
+├── .gitignore          # Git ignore file
+├── next.config.mjs     # Next.js configuration
+├── package.json        # Project dependencies
+├── postcss.config.mjs  # PostCSS configuration
+├── README.md           # Project documentation
+└── tsconfig.json       # TypeScript configuration
+```
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/portfolio-website.git
+cd portfolio-website
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+1. **Personal Information**: Update the personal information in the components
+2. **Projects**: Add your projects in the `src/data/projects.ts` file
+3. **Skills**: Update your skills in the `src/data/skills.ts` file
+4. **Theme**: Customize the theme colors in `src/app/globals.css`
+5. **Content**: Replace the placeholder content with your own in the section components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project can be easily deployed on Vercel:
 
-## Deploy on Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyourusername%2Fportfolio-website)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Icons](https://react-icons.github.io/react-icons/)
