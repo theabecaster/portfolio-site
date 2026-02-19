@@ -16,6 +16,7 @@ export default function ContactForm({
     email: "",
     subject: predefinedSubject || "",
     message: "",
+    website: "", // honeypot field — hidden from real users, bots auto-fill it
   });
 
   const [errors, setErrors] = React.useState({
@@ -111,6 +112,7 @@ export default function ContactForm({
           email: "",
           subject: predefinedSubject || "",
           message: "",
+          website: "",
         });
         setStatus({
           submitted: true,
@@ -162,6 +164,20 @@ export default function ContactForm({
       onSubmit={handleSubmit}
       className="bg-surface border border-border rounded-lg p-6 md:p-8"
     >
+      {/* Honeypot field — hidden from real users, bots auto-fill it */}
+      <div className="absolute opacity-0 -z-10 h-0 overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          type="text"
+          id="website"
+          name="website"
+          value={formData.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="mb-5">
         <label
           htmlFor="name"
@@ -177,6 +193,7 @@ export default function ContactForm({
           onChange={handleChange}
           className={inputClasses(!!errors.name)}
           placeholder="Your Name"
+          maxLength={100}
         />
         {errors.name && (
           <p className="mt-1.5 text-xs text-red-500 font-mono">{errors.name}</p>
@@ -198,6 +215,7 @@ export default function ContactForm({
           onChange={handleChange}
           className={inputClasses(!!errors.email)}
           placeholder="your.email@example.com"
+          maxLength={254}
         />
         {errors.email && (
           <p className="mt-1.5 text-xs text-red-500 font-mono">
@@ -222,6 +240,7 @@ export default function ContactForm({
             onChange={handleChange}
             className={inputClasses(!!errors.subject)}
             placeholder="Message Subject"
+            maxLength={200}
           />
           {errors.subject && (
             <p className="mt-1.5 text-xs text-red-500 font-mono">
@@ -245,6 +264,7 @@ export default function ContactForm({
           onChange={handleChange}
           className={`${inputClasses(!!errors.message)} h-36 resize-none`}
           placeholder="Your message..."
+          maxLength={5000}
         />
         {errors.message && (
           <p className="mt-1.5 text-xs text-red-500 font-mono">
