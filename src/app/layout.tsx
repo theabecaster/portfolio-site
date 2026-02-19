@@ -26,23 +26,23 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Abraham Gonzalez | Software Engineer",
-  description: "Professional portfolio showcasing skills, projects, and experience as a Software Engineer",
-  keywords: ["developer", "portfolio", "projects", "web development", "mobile development", "iOS", "Android", "Swift", "Kotlin"],
+  title: "Abraham Gonzalez | Full Stack Engineer",
+  description: "Full stack engineer with 8 years building production software at scale — enterprise mobile, LLM-powered tools, and multi-tenant SaaS",
+  keywords: ["developer", "portfolio", "full stack", "TypeScript", "Rust", "React", "Node.js", "developer tooling", "MCP", "LLM"],
   authors: [{ name: "Abraham Gonzalez" }],
   creator: "Abraham Gonzalez",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.abrahamgonzalez.dev",
-    title: "Abraham Gonzalez | Software Engineer",
-    description: "Professional portfolio showcasing skills, projects, and experience as a Software Engineer",
+    title: "Abraham Gonzalez | Full Stack Engineer",
+    description: "Full stack engineer with 8 years building production software at scale — enterprise mobile, LLM-powered tools, and multi-tenant SaaS",
     siteName: "Abraham Gonzalez Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abraham Gonzalez | Software Engineer",
-    description: "Professional portfolio showcasing skills, projects, and experience as a Software Engineer",
+    title: "Abraham Gonzalez | Full Stack Engineer",
+    description: "Full stack engineer with 8 years building production software at scale — enterprise mobile, LLM-powered tools, and multi-tenant SaaS",
     creator: "@abrahamgonzalez",
   },
 };

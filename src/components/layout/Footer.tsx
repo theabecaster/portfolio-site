@@ -21,8 +21,8 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-              Software engineer specializing in native mobile and modern web applications.
-              Building performant, user-centric experiences with clean architecture.
+              Full stack engineer building production software at scale — from enterprise
+              mobile platforms to LLM-powered developer tools and multi-tenant SaaS.
             </p>
           </div>
 
@@ -94,7 +94,7 @@ const Footer = () => {
             &copy; {currentYear} Abraham Gonzalez
           </p>
           <p className="text-xs text-text-dim font-mono">
-            Weston, FL
+            Miami, FL
           </p>
         </div>
       </div>

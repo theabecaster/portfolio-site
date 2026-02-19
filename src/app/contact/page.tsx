@@ -59,7 +59,7 @@ export default function ContactPage() {
                   title: "Location",
                   content: (
                     <p className="text-sm text-muted-foreground font-mono">
-                      Weston, FL
+                      Miami, FL
                     </p>
                   ),
                 },

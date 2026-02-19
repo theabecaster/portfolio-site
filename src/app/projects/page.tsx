@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 export default function ProjectsPage() {
   return (
@@ -16,9 +17,8 @@ export default function ProjectsPage() {
           </h1>
         </div>
         <p className="text-base text-muted-foreground mb-16 max-w-2xl">
-          A showcase of my professional work and projects. My focus is on creating
-          intuitive, high-performance mobile and web applications with clean code
-          and thoughtful architecture.
+          From enterprise mobile platforms to multi-tenant SaaS, AI-powered tools,
+          and hardware projects built for curiosity.
         </p>
       </ScrollReveal>
 
@@ -41,23 +41,127 @@ export default function ProjectsPage() {
                 Publix Pharmacy App
               </h2>
               <div className="mb-5 flex flex-wrap gap-1.5">
-                {["Swift", "Kotlin", "Composable Architecture", "SwiftUI", "Combine", "Coroutines"].map((tag) => (
+                {["Swift", "Kotlin", "SwiftUI", "Jetpack Compose", "REST APIs", "CI/CD"].map((tag) => (
                   <span key={tag} className="tech-tag">{tag}</span>
                 ))}
               </div>
               <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-                Transitioned the Publix Pharmacy app from Xamarin to native Swift
-                (iOS) and Kotlin (Android), boosting performance by 40% and user
-                satisfaction by 30%. Implemented a robust network layer using
-                Combine (Swift) and Coroutines (Kotlin), reducing API response
-                times by 20%.
+                Architected and shipped the Publix Pharmacy iOS and Android
+                applications from greenfield to production — grew the app rating
+                from 1.9 to 4.9 stars while growing the user base and total review
+                count simultaneously. Designing mobile-first REST APIs powering
+                pharmacy operations for millions of customers across the US.
               </p>
               <ul className="space-y-2 mb-5">
                 {[
-                  "Designed platform-specific navigation frameworks and integrated the Composable Architecture (TCA) for scalability",
-                  "Implemented Quick Refill feature using App Clips (iOS) and Instant Apps (Android)",
-                  "Created reliable medication reminders using UserNotifications (Swift) and WorkManager (Kotlin)",
-                  "Enhanced accessibility with dynamic interfaces using SwiftUI and Jetpack Compose",
+                  "Built an internal MCP server using XCUITest for AI-driven iOS automation — shipped months before Appium's official MCP",
+                  "Own and manage all mobile CI/CD pipelines across the department on Azure DevOps and AWS",
+                  "Senior technical lead across a multi-team department for mobile architecture decisions",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="text-primary font-mono text-xs mt-1 shrink-0">&gt;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://apps.apple.com/us/app/publix-pharmacy/id1148770146"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-primary hover:text-primary-dark transition-colors"
+              >
+                <FiExternalLink className="h-3.5 w-3.5" />
+                View on App Store
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* MembershipIQ */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <ScrollReveal delay={200} className="order-1 lg:order-2">
+            <div className="rounded-lg border border-border bg-surface/50 h-80 flex items-center justify-center overflow-hidden relative">
+              <Image
+                src="/images/membershipiq-app.webp"
+                alt="MembershipIQ Platform"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={400} className="order-2 lg:order-1">
+            <div>
+              <h2 className="text-3xl font-heading font-bold tracking-tight mb-4">
+                MembershipIQ
+              </h2>
+              <div className="mb-5 flex flex-wrap gap-1.5">
+                {["React", "Node.js", "PostgreSQL", "Supabase", "Twilio", "Multi-Tenant"].map((tag) => (
+                  <span key={tag} className="tech-tag">{tag}</span>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                A multi-tenant white-label SaaS platform currently serving 100+
+                client apps from a single shared Node.js backend. Designed the full
+                system from scratch: shared infrastructure, per-tenant isolation,
+                auth boundaries, and deployment pipeline.
+              </p>
+              <ul className="space-y-2 mb-5">
+                {[
+                  "Built React manager dashboard with multi-tenant analytics, subscription management, and white-label configuration",
+                  "White-label client app with dynamic theming, React Suspense, memoization, and virtualization for data-heavy views",
+                  "PostgreSQL with row-level multi-tenancy, Supabase Auth, and Twilio SMS authentication",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="text-primary font-mono text-xs mt-1 shrink-0">&gt;</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="https://membershipiq.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-primary hover:text-primary-dark transition-colors"
+              >
+                <FiExternalLink className="h-3.5 w-3.5" />
+                membershipiq.app
+              </a>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        {/* Venli */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <ScrollReveal delay={200}>
+            <div className="rounded-lg border border-border bg-surface/50 h-80 flex items-center justify-center overflow-hidden relative">
+              <Image
+                src="/images/venli-app.webp"
+                alt="Venli AI Tourist Guide"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={400}>
+            <div>
+              <h2 className="text-3xl font-heading font-bold tracking-tight mb-4">
+                Venli — AI Tourist Guide
+              </h2>
+              <div className="mb-5 flex flex-wrap gap-1.5">
+                {["React", "Node.js", "OpenAI Realtime API", "gRPC", "WebSockets"].map((tag) => (
+                  <span key={tag} className="tech-tag">{tag}</span>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                An LLM-powered tourist guide that knows your real-time location and
+                speaks to you as a natural person using OpenAI&apos;s Realtime API
+                over gRPC. Built the complete web application in React and Node.js.
+              </p>
+              <ul className="space-y-2 mb-5">
+                {[
+                  "Implemented low-latency streaming voice responses with WebSocket state, audio chunking, and React rendering optimization",
+                  "Built geolocation-aware React UI using custom hooks, context, and re-render optimization during continuous location polling",
+                  "Integrated in-app payments end-to-end and served as system designer and tech lead for mobile development",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <span className="text-primary font-mono text-xs mt-1 shrink-0">&gt;</span>
@@ -69,7 +173,7 @@ export default function ProjectsPage() {
           </ScrollReveal>
         </div>
 
-        {/* SoSecure by ADT */}
+        {/* SoSecure */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <ScrollReveal delay={200} className="order-1 lg:order-2">
             <div className="rounded-lg border border-border bg-surface/50 h-80 flex items-center justify-center overflow-hidden relative">
@@ -87,22 +191,19 @@ export default function ProjectsPage() {
                 SoSecure by ADT
               </h2>
               <div className="mb-5 flex flex-wrap gap-1.5">
-                {["Swift", "UIKit", "SwiftUI", "RxSwift", "MVVM"].map((tag) => (
+                {["Swift", "UIKit", "Core ML", "Speech-to-Text", "SDK"].map((tag) => (
                   <span key={tag} className="tech-tag">{tag}</span>
                 ))}
               </div>
               <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-                Designed and implemented a safety-focused mobile app using Swift
-                for iOS, incorporating geofencing, voice-activated silent alarms,
-                and push notifications. Built using RxSwift and MVVM architecture
-                to ensure maintainability and scalability.
+                An iOS personal safety app featuring on-device speech-to-text,
+                real-time location tracking, and geofencing. Required deep integration
+                with iOS system APIs and careful battery/privacy trade-offs.
               </p>
               <ul className="space-y-2 mb-5">
                 {[
-                  "Gained extensive experience implementing SwiftUI and UIKit for navigation",
-                  "Started with UIKit as the foundation and gradually integrated SwiftUI components",
-                  "Maintained UIKit-based navigation for stability and production-tested reliability",
-                  "Leveraged RxSwift for reactive programming and state management",
+                  "Developed the SoSecure SDK, adopted by Lyft as a core rider safety feature across their platform",
+                  "Real enterprise SDK adoption — built and shipped during my time as a junior engineer",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
                     <span className="text-primary font-mono text-xs mt-1 shrink-0">&gt;</span>
@@ -114,52 +215,7 @@ export default function ProjectsPage() {
           </ScrollReveal>
         </div>
 
-        {/* IOTAS App */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <ScrollReveal delay={200}>
-            <div className="rounded-lg border border-border bg-surface/50 h-80 flex items-center justify-center overflow-hidden relative">
-              <Image
-                src="/images/iotas-home-app.webp"
-                alt="IOTAS Home Automation App"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={400}>
-            <div>
-              <h2 className="text-3xl font-heading font-bold tracking-tight mb-4">
-                IOTAS Home Automation App
-              </h2>
-              <div className="mb-5 flex flex-wrap gap-1.5">
-                {["Flutter", "Dart", "Bloc", "Cross-Platform"].map((tag) => (
-                  <span key={tag} className="tech-tag">{tag}</span>
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-                Developed a home automation app for IOTAS using Flutter, enabling
-                users to control smart devices across connected ecosystems. Focused
-                on optimizing cross-platform performance, reducing development
-                time by 40%.
-              </p>
-              <ul className="space-y-2 mb-5">
-                {[
-                  "Enhanced user engagement with personalized notifications and dynamic UI features",
-                  "Implemented Flutter Bloc pattern for robust state management",
-                  "Created consistent user experience across iOS and Android platforms",
-                  "Integrated with various smart home device APIs for comprehensive device control",
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                    <span className="text-primary font-mono text-xs mt-1 shrink-0">&gt;</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        {/* Other Projects */}
+        {/* Personal & Open Source Projects */}
         <div>
           <ScrollReveal>
             <div className="flex items-center gap-3 mb-8">
@@ -168,47 +224,82 @@ export default function ProjectsPage() {
               </span>
               <div className="h-px flex-1 max-w-12 bg-primary/40" />
               <h2 className="text-3xl font-heading font-bold tracking-tight">
-                Other Projects
+                Personal & Open Source
               </h2>
             </div>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
-                title: "Pipol Pay Mobile by Facebank",
+                title: "Lumon MDR Terminal",
                 description:
-                  "Developed secure, encrypted web services with QR-based payment features.",
-                tags: ["Swift", "UIKit", "Payments"],
+                  "A Rust + Ratatui TUI recreating the Macrodata Refinement interface from Severance — with loading sequences, data containers, mouse support, and an SSH server so anyone can connect.",
+                tags: ["Rust", "Ratatui", "TUI", "SSH"],
+                url: "https://github.com/theabecaster/lumon-mdr",
                 delay: 100,
               },
               {
-                title: "Metricle Mobile",
+                title: "Raspberry Pi Rust Phone",
                 description:
-                  "Built stock prediction app with SwiftUI and Combine for real-time sentiment analysis.",
-                tags: ["SwiftUI", "Combine", "Financial"],
+                  "A fully functional phone built from a Raspberry Pi in Rust — Twilio API for real calls and SMS, custom hardware programming for analog dial tones, busy signals, and ring patterns.",
+                tags: ["Rust", "Raspberry Pi", "Twilio", "Hardware"],
                 delay: 200,
               },
               {
-                title: "OMSA Gallery",
+                title: "OpenCode Contributor",
                 description:
-                  "Engineered a Node.js backend to optimize inventory management and payment processing, reducing costs by 20% and increasing transaction speed by 25%.",
-                tags: ["Node.js", "AWS", "iOS"],
+                  "Contributed transparent background support to OpenCode (the open-source terminal IDE) — implemented tui.transparent_background config with full theme and root container support.",
+                tags: ["Go", "Open Source", "TUI"],
+                url: "https://github.com/anomalyco/opencode/pull/8403",
                 delay: 300,
+              },
+              {
+                title: "AI-Controlled Robot Car",
+                description:
+                  "A WiFi-controlled mobile robot with live camera feed, driven via natural language through OpenClaw on a Mac mini backed by a local LLM on an RTX 5070. Full local inference.",
+                tags: ["Python", "LLM", "Hardware", "Robotics"],
+                delay: 400,
+              },
+              {
+                title: "Traffic Light Detector",
+                description:
+                  "iOS app using on-device machine learning (Core ML) to detect traffic lights in real time and alert drivers — built as a driving safety assistant.",
+                tags: ["Swift", "Core ML", "Vision", "iOS"],
+                url: "https://github.com/theabecaster",
+                delay: 500,
+              },
+              {
+                title: "OMSA Practice Management",
+                description:
+                  "Complete oral surgery practice management system — patient records, inventory tracking, payments — running on a local office server with no external cloud dependency.",
+                tags: ["Node.js", "LLM", "Local Server"],
+                delay: 600,
               },
             ].map((project, i) => (
               <ScrollReveal key={i} delay={project.delay}>
-                <div className="p-5 rounded-lg border border-border bg-surface/50 hover:border-primary/30 transition-all duration-300 h-full">
+                <div className="p-5 rounded-lg border border-border bg-surface/50 hover:border-primary/30 transition-all duration-300 h-full flex flex-col">
                   <h3 className="text-base font-heading font-bold text-foreground mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {project.tags.map((tag) => (
                       <span key={tag} className="tech-tag">{tag}</span>
                     ))}
                   </div>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-mono text-primary hover:text-primary-dark transition-colors"
+                    >
+                      <FiGithub className="h-3.5 w-3.5" />
+                      View on GitHub
+                    </a>
+                  )}
                 </div>
               </ScrollReveal>
             ))}

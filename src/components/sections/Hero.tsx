@@ -7,7 +7,7 @@ import { FiArrowRight, FiGithub, FiLinkedin } from "react-icons/fi";
 
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
-  const fullText = "Software Engineer";
+  const fullText = "Full Stack Engineer";
 
   useEffect(() => {
     // Check reduced motion
@@ -77,12 +77,11 @@ const Hero = () => {
 
           {/* Description */}
           <p className="text-base sm:text-lg text-text-body max-w-lg leading-relaxed">
-            I build performant, native mobile and web applications with clean architecture.
-            Specializing in{" "}
-            <span className="text-primary font-medium">Swift</span>,{" "}
-            <span className="text-primary font-medium">Kotlin</span>,{" "}
-            <span className="text-primary font-medium">React</span>, and{" "}
-            <span className="text-primary font-medium">Next.js</span>.
+            8 years building production software at scale — from enterprise mobile
+            platforms to LLM-powered developer tools. I write{" "}
+            <span className="text-primary font-medium">TypeScript</span> and{" "}
+            <span className="text-primary font-medium">Rust</span> by preference,
+            live in the terminal, and build the tools that make other builders faster.
           </p>
 
           {/* CTAs */}
@@ -152,7 +151,7 @@ const Hero = () => {
                 <p className="pl-4">
                   <span className="text-[#f78c6c]">role</span>
                   <span className="text-muted-foreground">:</span>{" "}
-                  <span className="text-[#c3e88d]">&quot;Software Engineer&quot;</span>
+                  <span className="text-[#c3e88d]">&quot;Full Stack Engineer&quot;</span>
                   <span className="text-muted-foreground">,</span>
                 </p>
                 <p className="pl-4">
@@ -161,15 +160,15 @@ const Hero = () => {
                   <span className="text-[#c3e88d]">[</span>
                 </p>
                 <p className="pl-8">
-                  <span className="text-[#c3e88d]">&quot;Swift&quot;</span>
+                  <span className="text-[#c3e88d]">&quot;TypeScript&quot;</span>
                   <span className="text-muted-foreground">,</span>{" "}
-                  <span className="text-[#c3e88d]">&quot;Kotlin&quot;</span>
+                  <span className="text-[#c3e88d]">&quot;Rust&quot;</span>
                   <span className="text-muted-foreground">,</span>
                 </p>
                 <p className="pl-8">
                   <span className="text-[#c3e88d]">&quot;React&quot;</span>
                   <span className="text-muted-foreground">,</span>{" "}
-                  <span className="text-[#c3e88d]">&quot;Next.js&quot;</span>
+                  <span className="text-[#c3e88d]">&quot;Node.js&quot;</span>
                 </p>
                 <p className="pl-4">
                   <span className="text-[#c3e88d]">]</span>
@@ -178,13 +177,13 @@ const Hero = () => {
                 <p className="pl-4">
                   <span className="text-[#f78c6c]">focus</span>
                   <span className="text-muted-foreground">:</span>{" "}
-                  <span className="text-[#c3e88d]">&quot;Native Mobile &amp; Web&quot;</span>
+                  <span className="text-[#c3e88d]">&quot;Developer Tooling &amp; Full Stack&quot;</span>
                   <span className="text-muted-foreground">,</span>
                 </p>
                 <p className="pl-4">
                   <span className="text-[#f78c6c]">location</span>
                   <span className="text-muted-foreground">:</span>{" "}
-                  <span className="text-[#c3e88d]">&quot;Weston, FL&quot;</span>
+                  <span className="text-[#c3e88d]">&quot;Miami, FL&quot;</span>
                 </p>
                 <p>
                   <span className="text-[#c3e88d]">{"}"}</span>

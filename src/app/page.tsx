@@ -8,29 +8,29 @@ import { FiExternalLink, FiArrowRight } from "react-icons/fi";
 export default function Home() {
   const skillCategories = [
     {
-      title: "Mobile",
-      label: "NATIVE",
-      skills: ["Swift", "SwiftUI", "Kotlin", "UIKit", "Flutter", "Dart"],
+      title: "Languages",
+      label: "CODE",
+      skills: ["TypeScript", "Rust", "Go", "Swift", "Kotlin", "Python"],
     },
     {
-      title: "Web",
-      label: "FRONTEND",
-      skills: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
+      title: "Frontend",
+      label: "UI",
+      skills: ["React", "Next.js", "SwiftUI", "Jetpack Compose"],
     },
     {
       title: "Backend",
       label: "SYSTEMS",
-      skills: ["Node.js", "REST APIs", "Combine", "Coroutines", "RxSwift"],
+      skills: ["Node.js", "REST", "gRPC", "PostgreSQL", "Supabase"],
     },
     {
-      title: "Architecture",
-      label: "PATTERNS",
-      skills: ["MVVM", "TCA", "Bloc", "MVC", "Clean Architecture"],
+      title: "AI / LLM",
+      label: "AGENTS",
+      skills: ["MCP", "OpenAI APIs", "Prompt Engineering", "Local Inference"],
     },
     {
-      title: "Tools",
-      label: "WORKFLOW",
-      skills: ["Git", "Azure DevOps", "Figma", "XCTest", "Appium", "Jira"],
+      title: "DevOps",
+      label: "INFRA",
+      skills: ["Azure DevOps", "AWS", "Vercel", "CI/CD", "GitHub Actions"],
     },
   ];
 
@@ -38,32 +38,32 @@ export default function Home() {
     {
       title: "Publix Pharmacy App",
       description:
-        "Transitioned the Publix Pharmacy app from Xamarin to native Swift (iOS) and Kotlin (Android), boosting performance by 40%.",
-      technologies: ["Swift", "Kotlin", "SwiftUI", "TCA", "Combine"],
+        "Architected and shipped the iOS and Android apps from greenfield to production — grew the rating from 1.9 to 4.9 stars while scaling the user base.",
+      technologies: ["Swift", "Kotlin", "SwiftUI", "REST APIs", "CI/CD"],
       demoUrl: "https://apps.apple.com/us/app/publix-pharmacy/id1148770146",
       image: "/images/publix-pharmacy-app.webp",
-      metric: "+40%",
-      metricLabel: "Performance",
+      metric: "4.9★",
+      metricLabel: "App Rating",
     },
     {
-      title: "SoSecure by ADT",
+      title: "MembershipIQ",
       description:
-        "Designed and implemented a safety-focused mobile app using Swift for iOS with geofencing and silent alarms.",
-      technologies: ["Swift", "UIKit", "RxSwift", "MVVM"],
-      demoUrl: "https://apps.apple.com/us/app/sosecure/id1495220820",
-      image: "/images/sosecure-by-adt.webp",
-      metric: "iOS",
-      metricLabel: "Platform",
+        "Multi-tenant white-label SaaS platform serving 100+ client apps from a single shared Node.js backend with React dashboards.",
+      technologies: ["React", "Node.js", "PostgreSQL", "Supabase"],
+      demoUrl: "https://membershipiq.app",
+      image: "/images/membershipiq-app.webp",
+      metric: "100+",
+      metricLabel: "Client Apps",
     },
     {
-      title: "IOTAS Home App",
+      title: "Venli — AI Tourist Guide",
       description:
-        "Developed a home automation app using Flutter, enabling users to control smart devices across connected ecosystems.",
-      technologies: ["Flutter", "Dart", "Bloc"],
+        "LLM-powered tourist guide with real-time voice responses using OpenAI's Realtime API over gRPC and geolocation-aware React UI.",
+      technologies: ["React", "Node.js", "OpenAI API", "gRPC"],
       demoUrl: "#",
-      image: "/images/iotas-home-app.webp",
-      metric: "-40%",
-      metricLabel: "Dev Time",
+      image: "/images/venli-app.webp",
+      metric: "RT",
+      metricLabel: "Voice AI",
     },
   ];
 
@@ -94,25 +94,24 @@ export default function Home() {
             <ScrollReveal className="lg:col-span-3">
               <div className="space-y-5">
                 <p className="text-lg text-text-body leading-relaxed">
-                  I&apos;m a Software Engineer with expertise in native mobile and web development.
-                  With years of experience creating custom solutions for diverse clients,
-                  I bring a versatile skill set focused on clean code, thoughtful architecture,
-                  and exceptional user experiences.
+                  Full stack engineer with 8 years building production software at scale —
+                  from enterprise mobile platforms to LLM-powered developer tools.
+                  I write TypeScript and Rust by preference, live in the terminal,
+                  and my passion is developer tooling.
                 </p>
                 <p className="text-lg text-text-body leading-relaxed">
-                  Currently at{" "}
-                  <span className="text-primary font-medium">Publix Technology</span>,
-                  where I&apos;ve been instrumental in transitioning their Pharmacy app
-                  from Xamarin to native platforms, significantly improving performance
-                  and user satisfaction.
+                  Currently a Senior Engineer at{" "}
+                  <span className="text-primary font-medium">Publix Super Markets</span>,
+                  where I shipped the Pharmacy iOS and Android apps from greenfield to production
+                  and built an internal MCP server for AI-driven iOS automation.
                 </p>
 
                 {/* Quick stats */}
                 <div className="grid grid-cols-3 gap-4 pt-4">
                   {[
-                    { value: "5+", label: "Years Exp." },
-                    { value: "40%", label: "Perf. Boost" },
-                    { value: "85%", label: "Test Coverage" },
+                    { value: "8+", label: "Years Exp." },
+                    { value: "4.9★", label: "App Rating" },
+                    { value: "100+", label: "Client Apps" },
                   ].map((stat, i) => (
                     <div
                       key={i}
@@ -166,7 +165,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-muted-foreground max-w-xl mb-12 text-base">
-              Technologies and tools I work with to build modern mobile and web applications.
+              Technologies and tools I use to build production software, developer tools, and AI-powered applications.
             </p>
           </ScrollReveal>
 
@@ -215,8 +214,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="text-muted-foreground max-w-xl mb-12 text-base">
-              Featured work from my professional career. Each project represents
-              a commitment to performance and user experience.
+              Featured work from enterprise apps to multi-tenant SaaS platforms
+              and AI-powered tools.
             </p>
           </ScrollReveal>
 
