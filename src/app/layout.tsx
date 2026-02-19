@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Cabin } from "next/font/google";
+import { Syne, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import AnimatedBackground from "@/components/ui/AnimatedBackground";
 
-const playfair = Playfair_Display({
+const syne = Syne({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-syne",
 });
 
-const cabin = Cabin({
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-cabin",
+  variable: "--font-manrope",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains",
 });
 
 export const metadata: Metadata = {
@@ -45,10 +52,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cabin.variable}`}>
+    <html lang="en" className={`${syne.variable} ${manrope.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen bg-background antialiased">
         <ThemeProvider>
-          <div className="relative flex min-h-screen flex-col">
+          <AnimatedBackground />
+          <div className="relative z-10 flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />

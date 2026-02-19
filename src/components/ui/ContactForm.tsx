@@ -7,79 +7,79 @@ interface ContactFormProps {
   showSubjectField?: boolean;
 }
 
-export default function ContactForm({ 
-  predefinedSubject, 
-  showSubjectField = false 
+export default function ContactForm({
+  predefinedSubject,
+  showSubjectField = false,
 }: ContactFormProps) {
   const [formData, setFormData] = React.useState({
-    name: '',
-    email: '',
-    subject: predefinedSubject || '',
-    message: ''
+    name: "",
+    email: "",
+    subject: predefinedSubject || "",
+    message: "",
   });
-  
+
   const [errors, setErrors] = React.useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
-  
+
   const [status, setStatus] = React.useState({
     submitted: false,
     submitting: false,
-    info: { error: false, msg: null as string | null }
+    info: { error: false, msg: null as string | null },
   });
 
-  // Update subject if predefinedSubject prop changes
   React.useEffect(() => {
     if (predefinedSubject) {
-      setFormData(prev => ({ ...prev, subject: predefinedSubject }));
+      setFormData((prev) => ({ ...prev, subject: predefinedSubject }));
     }
   }, [predefinedSubject]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({ ...prevData, [name]: value }));
-    
-    // Clear error when user starts typing
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+
     if (errors[name as keyof typeof errors]) {
-      setErrors(prevErrors => ({ ...prevErrors, [name]: '' }));
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
     }
   };
 
   const validateForm = () => {
     const tempErrors = {
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
     };
     let isValid = true;
 
     if (!formData.name.trim()) {
-      tempErrors.name = 'Name is required';
+      tempErrors.name = "Name is required";
       isValid = false;
     }
 
     if (!formData.email.trim()) {
-      tempErrors.email = 'Email is required';
+      tempErrors.email = "Email is required";
       isValid = false;
     } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
-        tempErrors.email = 'Please provide a valid email address';
+        tempErrors.email = "Please provide a valid email address";
         isValid = false;
       }
     }
 
     if (showSubjectField && !formData.subject.trim()) {
-      tempErrors.subject = 'Subject is required';
+      tempErrors.subject = "Subject is required";
       isValid = false;
     }
 
     if (!formData.message.trim()) {
-      tempErrors.message = 'Message is required';
+      tempErrors.message = "Message is required";
       isValid = false;
     }
 
@@ -89,146 +89,197 @@ export default function ContactForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
-    setStatus(prevStatus => ({ ...prevStatus, submitting: true }));
-    
+
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
-      
+
       const data = await response.json();
-      
+
       if (response.ok) {
-        setFormData({ 
-          name: '', 
-          email: '', 
-          subject: predefinedSubject || '',
-          message: '' 
+        setFormData({
+          name: "",
+          email: "",
+          subject: predefinedSubject || "",
+          message: "",
         });
         setStatus({
           submitted: true,
           submitting: false,
-          info: { error: false, msg: 'Your message has been sent successfully!' }
+          info: {
+            error: false,
+            msg: "Your message has been sent successfully!",
+          },
         });
-        
-        // Reset success message after 5 seconds
+
         setTimeout(() => {
-          setStatus(prevStatus => ({
+          setStatus((prevStatus) => ({
             ...prevStatus,
             submitted: false,
-            info: { error: false, msg: null }
+            info: { error: false, msg: null },
           }));
         }, 5000);
       } else {
         setStatus({
           submitted: false,
           submitting: false,
-          info: { error: true, msg: data.error || 'Something went wrong. Please try again later.' }
+          info: {
+            error: true,
+            msg:
+              data.error ||
+              "Something went wrong. Please try again later.",
+          },
         });
       }
     } catch {
       setStatus({
         submitted: false,
         submitting: false,
-        info: { error: true, msg: 'An error occurred. Please try again later.' }
+        info: {
+          error: true,
+          msg: "An error occurred. Please try again later.",
+        },
       });
     }
   };
 
+  const inputClasses = (hasError: boolean) =>
+    `w-full px-4 py-3 rounded border bg-surface text-foreground font-mono text-sm transition-all duration-200 placeholder:text-text-dim focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary ${
+      hasError ? "border-red-500" : "border-border"
+    }`;
+
   return (
-    <form onSubmit={handleSubmit} className="bg-background p-8 rounded-lg border border-gray-200">
-      <div className="mb-6">
-        <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-        <input 
-          type="text" 
+    <form
+      onSubmit={handleSubmit}
+      className="bg-surface border border-border rounded-lg p-6 md:p-8"
+    >
+      <div className="mb-5">
+        <label
+          htmlFor="name"
+          className="block text-xs font-mono font-medium text-muted-foreground uppercase tracking-wider mb-2"
+        >
+          Name
+        </label>
+        <input
+          type="text"
           id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md bg-background transition-colors
-            ${errors.name ? 'border-red-500' : 'border-input'} 
-            focus:outline-none focus:ring-2 focus:ring-primary/50`}
+          className={inputClasses(!!errors.name)}
           placeholder="Your Name"
         />
-        {errors.name && <p className="mt-1 text-sm text-red-500 text-left">{errors.name}</p>}
+        {errors.name && (
+          <p className="mt-1.5 text-xs text-red-500 font-mono">{errors.name}</p>
+        )}
       </div>
-      
-      <div className="mb-6">
-        <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-        <input 
+
+      <div className="mb-5">
+        <label
+          htmlFor="email"
+          className="block text-xs font-mono font-medium text-muted-foreground uppercase tracking-wider mb-2"
+        >
+          Email
+        </label>
+        <input
           type="email"
           id="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md bg-background transition-colors
-            ${errors.email ? 'border-red-500' : 'border-input'} 
-            focus:outline-none focus:ring-2 focus:ring-primary/50`}
+          className={inputClasses(!!errors.email)}
           placeholder="your.email@example.com"
         />
-        {errors.email && <p className="mt-1 text-sm text-red-500 text-left">{errors.email}</p>}
+        {errors.email && (
+          <p className="mt-1.5 text-xs text-red-500 font-mono">
+            {errors.email}
+          </p>
+        )}
       </div>
-      
+
       {showSubjectField && (
-        <div className="mb-6">
-          <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
-          <input 
+        <div className="mb-5">
+          <label
+            htmlFor="subject"
+            className="block text-xs font-mono font-medium text-muted-foreground uppercase tracking-wider mb-2"
+          >
+            Subject
+          </label>
+          <input
             type="text"
             id="subject"
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-md bg-background transition-colors
-              ${errors.subject ? 'border-red-500' : 'border-input'} 
-              focus:outline-none focus:ring-2 focus:ring-primary/50`}
+            className={inputClasses(!!errors.subject)}
             placeholder="Message Subject"
           />
-          {errors.subject && <p className="mt-1 text-sm text-red-500 text-left">{errors.subject}</p>}
+          {errors.subject && (
+            <p className="mt-1.5 text-xs text-red-500 font-mono">
+              {errors.subject}
+            </p>
+          )}
         </div>
       )}
-      
+
       <div className="mb-6">
-        <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-        <textarea 
+        <label
+          htmlFor="message"
+          className="block text-xs font-mono font-medium text-muted-foreground uppercase tracking-wider mb-2"
+        >
+          Message
+        </label>
+        <textarea
           id="message"
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md bg-background transition-colors h-32
-            ${errors.message ? 'border-red-500' : 'border-input'} 
-            focus:outline-none focus:ring-2 focus:ring-primary/50`}
+          className={`${inputClasses(!!errors.message)} h-36 resize-none`}
           placeholder="Your message..."
         />
-        {errors.message && <p className="mt-1 text-sm text-red-500 text-left">{errors.message}</p>}
+        {errors.message && (
+          <p className="mt-1.5 text-xs text-red-500 font-mono">
+            {errors.message}
+          </p>
+        )}
       </div>
 
       {status.info.msg && (
-        <div className={`mb-6 p-3 rounded ${status.info.error ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+        <div
+          className={`mb-5 p-3 rounded border font-mono text-sm ${
+            status.info.error
+              ? "bg-red-500/10 border-red-500/30 text-red-400"
+              : "bg-green-500/10 border-green-500/30 text-green-400"
+          }`}
+        >
           {status.info.msg}
         </div>
       )}
-      
-      <button 
+
+      <button
         type="submit"
         disabled={status.submitting}
-        className={`w-full py-2 rounded-md transition-colors
-          ${status.submitting 
-            ? 'bg-primary/70 text-white/70 cursor-not-allowed' 
-            : 'bg-primary text-white hover:bg-primary/90'}`}
+        className={`w-full py-3 rounded font-mono text-sm font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+          status.submitting
+            ? "bg-primary/50 text-background/70 cursor-not-allowed"
+            : "bg-primary text-background hover:bg-primary-dark hover:shadow-lg hover:shadow-primary-glow active:scale-[0.99]"
+        }`}
       >
-        {status.submitting 
-          ? 'Sending...' 
-          : status.submitted 
-            ? 'Sent!' 
-            : 'Send Message'}
+        {status.submitting
+          ? "SENDING..."
+          : status.submitted
+          ? "SENT"
+          : "SEND MESSAGE"}
       </button>
     </form>
   );
-} 
+}

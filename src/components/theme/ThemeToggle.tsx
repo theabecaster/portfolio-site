@@ -2,24 +2,21 @@
 
 import { useTheme } from "./ThemeProvider";
 import { FiSun, FiMoon } from "react-icons/fi";
-import { motion } from "framer-motion";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+    <button
       onClick={toggleTheme}
-      className="w-10 h-10 rounded-full flex items-center justify-center bg-muted/20 text-foreground/80 hover:text-primary transition-colors focus:outline-none"
+      className="relative w-9 h-9 rounded flex items-center justify-center border border-border bg-surface text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
     >
       {theme === "light" ? (
-        <FiMoon className="h-5 w-5" />
+        <FiMoon className="h-4 w-4" />
       ) : (
-        <FiSun className="h-5 w-5" />
+        <FiSun className="h-4 w-4" />
       )}
-    </motion.button>
+    </button>
   );
-} 
+}

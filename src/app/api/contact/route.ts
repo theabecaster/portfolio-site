@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Initialize Resend with API key (you'll need to get this from resend.com)
-// You should store this in an environment variable
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend lazily to avoid build errors when API key is not set
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 export async function POST(request: Request) {
   try {
@@ -35,6 +36,7 @@ export async function POST(request: Request) {
     
     // Send the email
     try {
+      const resend = getResend();
       const { data, error } = await resend.emails.send({
         from: 'inquiries@abrahamgonzalez.dev', // You can customize this after verification
         to: 'developerabe0@gmail.com',

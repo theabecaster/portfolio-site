@@ -4,10 +4,11 @@ import React, { useEffect, useRef, useState } from "react";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
-  delay?: number; // delay in ms before animation starts
-  once?: boolean; // whether to animate only once or every time the element enters viewport
+  delay?: number;
+  once?: boolean;
   className?: string;
-  threshold?: number; // how much of the element needs to be in view before animating (0-1)
+  threshold?: number;
+  direction?: "up" | "left" | "right" | "none";
 }
 
 export default function ScrollReveal({
@@ -16,38 +17,43 @@ export default function ScrollReveal({
   once = true,
   className = "",
   threshold = 0.1,
+  direction = "up",
 }: ScrollRevealProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Don't run on server
     if (typeof window === "undefined") return;
+
+    // Respect reduced motion
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // When the element is in view
         if (entry.isIntersecting) {
-          // Delay the animation if specified
           setTimeout(() => {
             setIsVisible(true);
           }, delay);
 
-          // If once is true, unobserve the element after it becomes visible
           if (once) {
             observer.unobserve(entry.target);
           }
         } else {
-          // If not once, set visibility to false when element leaves viewport
           if (!once) {
             setIsVisible(false);
           }
         }
       },
       {
-        root: null, // viewport
+        root: null,
         rootMargin: "0px",
-        threshold, // percentage of element visible before triggering
+        threshold,
       }
     );
 
@@ -56,7 +62,6 @@ export default function ScrollReveal({
       observer.observe(currentRef);
     }
 
-    // Cleanup
     return () => {
       if (currentRef) {
         observer.unobserve(currentRef);
@@ -64,16 +69,25 @@ export default function ScrollReveal({
     };
   }, [delay, once, threshold]);
 
+  const transformMap = {
+    up: "translateY(20px)",
+    left: "translateX(-20px)",
+    right: "translateX(20px)",
+    none: "none",
+  };
+
   return (
     <div
       ref={ref}
-      className={`transition-opacity duration-1000 ease-out ${
-        isVisible
-          ? "opacity-100 transform translate-y-0"
-          : "opacity-0 transform translate-y-10"
-      } ${className}`}
+      className={className}
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "none" : transformMap[direction],
+        transition: `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)`,
+        willChange: isVisible ? "auto" : "opacity, transform",
+      }}
     >
       {children}
     </div>
   );
-} 
+}

@@ -2,106 +2,101 @@
 
 import Link from "next/link";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 bg-background py-8">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <ScrollReveal delay={100}>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">About</h3>
-              <p className="text-muted-foreground">
-                A passionate software engineer specializing in mobile and web development,
-                focused on creating exceptional user experiences with modern technologies.
-              </p>
+    <footer className="relative border-t border-border/50 bg-background-alt/50">
+      <div className="container mx-auto px-5 md:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          {/* Brand column */}
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="font-mono text-xs text-primary border border-primary/30 rounded px-1.5 py-0.5">
+                AG
+              </span>
+              <span className="font-heading text-lg font-bold text-foreground tracking-tight">
+                abraham<span className="text-primary">.</span>gonzalez
+              </span>
             </div>
-          </ScrollReveal>
-          
-          <ScrollReveal delay={200}>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link 
-                    href="/"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    href="/about"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    href="/projects"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Projects
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    href="/contact"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
-          
-          <ScrollReveal delay={300}>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect</h3>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://github.com/theabecaster/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="GitHub"
-                >
-                  <FiGithub className="h-5 w-5" />
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/abraham-1996-gonzalez/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <FiLinkedin className="h-5 w-5" />
-                </a>
-                <a 
-                  href="mailto:inquiries@abrahamgonzalez.dev" 
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="Email"
-                >
-                  <FiMail className="h-5 w-5" />
-                </a>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-        
-        <ScrollReveal delay={400}>
-          <div className="mt-8 pt-6 border-t border-gray-200 text-center">
-            <p className="text-sm text-muted-foreground">
-              © {currentYear} Abraham Gonzalez. All rights reserved.
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
+              Software engineer specializing in native mobile and modern web applications.
+              Building performant, user-centric experiences with clean architecture.
             </p>
           </div>
-        </ScrollReveal>
+
+          {/* Navigation column */}
+          <div className="md:col-span-3">
+            <h3 className="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wider mb-4">
+              Navigation
+            </h3>
+            <ul className="space-y-2.5">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/about", label: "About" },
+                { href: "/projects", label: "Projects" },
+                { href: "/contact", label: "Contact" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-dim hover:text-primary transition-colors font-mono"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect column */}
+          <div className="md:col-span-4">
+            <h3 className="text-xs font-mono font-medium text-muted-foreground uppercase tracking-wider mb-4">
+              Connect
+            </h3>
+            <div className="flex gap-3">
+              <a
+                href="https://github.com/theabecaster/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
+                aria-label="GitHub"
+              >
+                <FiGithub className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/abraham-1996-gonzalez/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
+                aria-label="LinkedIn"
+              >
+                <FiLinkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="mailto:inquiries@abrahamgonzalez.dev"
+                className="w-9 h-9 rounded border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 transition-all"
+                aria-label="Email"
+              >
+                <FiMail className="h-4 w-4" />
+              </a>
+            </div>
+            <p className="text-xs text-text-dim font-mono mt-4">
+              inquiries@abrahamgonzalez.dev
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-10 pt-6 border-t border-border/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-text-dim font-mono">
+            &copy; {currentYear} Abraham Gonzalez
+          </p>
+          <p className="text-xs text-text-dim font-mono">
+            Weston, FL
+          </p>
+        </div>
       </div>
     </footer>
   );

@@ -30,13 +30,13 @@ const Section: React.FC<SectionProps> = ({
       id={id}
       className={classNames(
         "relative",
-        withPadding && "py-16 md:py-24",
+        withPadding && "py-20 md:py-28",
         className
       )}
     >
       <div
         className={classNames(
-          !fullWidth && "container mx-auto px-4",
+          !fullWidth && "container mx-auto px-5 md:px-8",
           innerClassName
         )}
       >
@@ -45,7 +45,6 @@ const Section: React.FC<SectionProps> = ({
     </section>
   );
 
-  // Wrap with ScrollReveal if animation is enabled
   if (withAnimation) {
     return (
       <ScrollReveal delay={animationDelay}>
